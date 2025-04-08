@@ -12,7 +12,7 @@
 
 .page {
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 100px 0 105px 0;
   min-inline-size: 320px;
   width: 100%;
   max-width: 700px;
@@ -48,7 +48,7 @@
 }
 
 .header {
-  block-size: clamp(20.437rem, 19.285rem + 3.85vw, 22.75rem);
+  block-size: clamp(20.188rem, 19.197rem + 4.23vw, 23rem);
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -67,7 +67,7 @@
 }
 
 .subtitle {
-  font-size: 23px;
+  font-size: clamp(0.875rem, 0.677rem + 0.85vw, 1.438rem);
   font-weight: 400;
 }
 
@@ -76,23 +76,28 @@
   margin-block-start: 100px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 48px;
 }
 
 .content__card {
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  border: 2px solid #000;
 }
 
 .content__card-hero {
   position: relative;
+  height: clamp(23.438rem, 16.373rem + 30.14vw, 43.5rem);
+  border-block-start: 2px solid #000;
+  border-block-end: 2px solid #000;
 }
 
-.content__card img {
+.content__card-hero img {
   display: block;
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .content__card-lable {
@@ -116,27 +121,31 @@
 }
 
 .content__card-title {
+  display: grid;
   font-variation-settings: "wght" var(--title-weight-font);
   width: 100%;
-  line-height: 100%;
+  line-height: 140%;
   font-size: 18px;
-  border: 2px solid #000;
-  border-block-end: none;
   padding: 3px 10px;
 }
 
 .content__card-discription {
   padding: 25px;
-  border: 2px solid #000;
-  border-block-start: none;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.content__card-discription p:first-of-type {
+  margin-block-end: 27px;
 }
 
 .content__card-like {
+  padding: 2px;
+  margin-block-start: 25px;
   display: flex;
   justify-content: end;
-  gap: 10px;
-  margin-block-start: 25px;
-  height: 38px;
+  align-items: center;
+  gap: 8px;
 }
 
 
@@ -236,14 +245,14 @@
   outline: none;
 }
 
-.card__icon-button:focus-visible {
+.card__icon-button:focus-visible .like-icon {
   outline: 2px solid #000;
 }
 
 .card__like-button {
   padding: 0;
-  width: 130px;
-  height: 38px;
+  width: 126px;
+  height: 34px;
 }
 
 .card__like-button,
@@ -288,24 +297,26 @@
 
 
 .button__text {
+  padding-top: 5px;
   position: relative;
   color: #fff;
   mix-blend-mode: difference;
   z-index: 2;
   font-family: var(--accent-font);
+  line-height: 90%;
   font-size: 14px;
   transition: color 0.5s ease-in-out;
 }
 
 .save-button {
   color: #fff;
-  padding: 15px 18px;
+  padding: 12px 18px;
   place-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  width: 335px;
+  width: clamp(19.125rem, 18.487rem + 2.72vw, 20.938rem);
 }
 
 .save-button svg {
@@ -313,18 +324,29 @@
   z-index: 2;
   fill: currentColor;
   mix-blend-mode: difference;
+  width: 21px;
 }
 
 @media (width <= 375px) {
   .save-button {
     flex-direction: column;
+    padding: 18px;
+  }
+
+  .save-button svg {
+    width: 28px;
+  }
+
+  .button__text {
+    padding: 0;
   }
 }
 
 .popup {
-  width: 357px;
-  border: 2px solid #000;
-  padding: 30px;
+  width: 350px;
+  border: none;
+  outline: 2px solid #000;
+  padding: 30px 40px;
   background-color: #fff;
   font-family: var(--accent-font), sans-serif;
   font-size: 14px;
@@ -333,7 +355,6 @@
 }
 
 .popup__description {
-  
   display: flex;
   gap: 20px;
   align-items: center;
@@ -348,7 +369,7 @@
 }
 
 .ok-button {
-  margin-block-start: 30px;
+  margin-block-start: 24px;
   width: 100%;
   height: 40px;
   line-height: 90%;
