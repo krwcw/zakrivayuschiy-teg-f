@@ -198,6 +198,11 @@
   padding: 0;
 }
 
+/* Совсем запутался в переходах и анимациях, 
+    можете указать пожалуйста на конкретные ошибки каждого элемента, 
+    в котором мой код не соответствует ТЗ?
+    Спасибо! */
+
 .like-icon {
   transition: outline 0.3s linear;
 }
@@ -213,7 +218,7 @@
 }
 
 .like-icon .contour {
-  transition: fill 0.3s linear 0.06s;
+  transition: fill 0.1s linear;
 }
 
 .like-icon:hover .core {
@@ -238,15 +243,17 @@
 
 .like-icon.is-liked .core {
   fill: #ff0000;
+  transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
   fill: #ff0000;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contour {
   fill: #ff0000;
-  transition: fill 0.1s linear;
+  transition: fill 0.3s linear 0.1s;
 }
 
 .like-icon.is-liked .heart {
@@ -256,11 +263,10 @@
 
 @keyframes scale {
   from {
-    scale: 1;
+    transform: scale(1);
   }
-
   to {
-    scale: 1.25;
+    transform: scale(1.25);
   }
 }
 
@@ -272,7 +278,6 @@
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
