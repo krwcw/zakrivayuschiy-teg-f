@@ -47,7 +47,7 @@
   justify-content: center;
   align-items: center;
   color: var(--accent-color);
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   text-transform: uppercase;
   gap: 20px;
   border: 2px solid var(--accent-color);
@@ -85,35 +85,35 @@
   border-block-end: 2px solid var(--accent-color);
 }
 
-.prepare-img {
+.filter-saturate {
   filter: saturate(0.5);
 }
 
-.blank-img {
+.filter-brightness {
   filter: brightness(1.3);
 }
 
-.question-img {
+.filter-contrast {
   filter: contrast(2);
 }
 
-.run-img {
+.filter-hue-rotate {
   filter: hue-rotate(0.5turn);
 }
 
-.family-img {
+.filter-sepia {
   filter: sepia(100%);
 }
 
-.strategy-img {
+.filter-invert-saturate {
   filter: invert(100%) saturate(1.5);
 }
 
-.depression-img {
+.filter-grayscale {
   filter: grayscale(100%);
 }
 
-.life-img {
+.filter-blur {
   filter: blur(2px);
 }
 
@@ -122,6 +122,8 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
+  object-position: center;
+  object-fit: cover;
 }
 
 .content__card-lable {
@@ -132,15 +134,24 @@
   font-size: 14px;
   line-height: 100%;
   opacity: 0.5;
-  font-family: var(--accent-font), sans-serif;
-  -webkit-text-stroke: 1px rgb(255, 255, 255, 0.5);
+  font-family: var(--accent-font), fantasy;
+  text-shadow: 0 2px 0 rgb(255, 255, 255), 0 -2px 0 rgb(255, 255, 255),
+    2px 0 0 rgb(255, 255, 255), -2px 0 0 rgb(255, 255, 255);
   font-weight: 400;
   mix-blend-mode: hard-light;
 }
 
-@supports (text-stroke: 2px rgb(255, 255, 255, 0.5)) {
+@supports (-webkit-text-stroke: 1px rgb(255, 255, 255, 0.5)) {
   .content__card-lable {
-    text-stroke: 2px rgb(255, 255, 255, 0.5);
+    text-shadow: none;
+    -webkit-text-stroke: 1px rgb(255, 255, 255, 0.5);
+  }
+}
+
+@supports (text-stroke: 1px rgb(255, 255, 255, 0.5)) {
+  .content__card-lable {
+    text-shadow: none;
+    text-stroke: 1px rgb(255, 255, 255, 0.5);
   }
 }
 
@@ -185,41 +196,44 @@
   background-color: transparent;
   border: none;
   padding: 0;
-  transition: outline 0.3s ease;
+}
+
+.like-icon {
+  transition: outline 0.3s linear;
 }
 
 .like-icon .core {
   fill: transparent;
-  transition: fill 0.3s ease 0.03s;
+  transition: fill 0.3s linear 0.03s;
 }
 
 .like-icon .main-body {
   fill: transparent;
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
 }
 
 .like-icon .contour {
-  transition: fill 0.3s ease 0.06s;
+  transition: fill 0.3s linear 0.06s;
 }
 
 .like-icon:hover .core {
   fill: var(--contour-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
   fill: var(--contour-color);
-  transition: fill 0.3s ease 0.05s;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon:active .core {
   fill: #ff0000;
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear;
 }
 
 .like-icon:active .main-body {
   fill: #ff0000;
-  transition: fill 0.3s ease 0.05s;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .core {
@@ -278,9 +292,7 @@
   height: 34px;
 }
 
-.card__like-button,
-.save-button,
-.ok-button {
+.button {
   position: relative;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
@@ -290,15 +302,11 @@
   overflow: hidden;
 }
 
-.card__like-button:focus,
-.save-button:focus,
-.ok-button:focus {
+.button:focus {
   box-shadow: 4px 4px 0 var(--accent-color);
 }
 
-.card__like-button::after,
-.save-button::after,
-.ok-button::after {
+.button::after {
   content: "";
   position: absolute;
   top: 0;
@@ -311,9 +319,7 @@
   z-index: 1;
 }
 
-.card__like-button:hover::after,
-.save-button:hover::after,
-.ok-button:hover::after {
+.button:hover::after {
   transform: translateX(0);
 }
 
@@ -323,7 +329,7 @@
   color: #fff;
   mix-blend-mode: difference;
   z-index: 2;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   line-height: 90%;
   font-size: 14px;
   transition: color 0.5s ease-in-out;
@@ -373,7 +379,7 @@
   outline: 2px solid var(--accent-color);
   padding: 30px 40px;
   background-color: #fff;
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   text-transform: uppercase;
 }
