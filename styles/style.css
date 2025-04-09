@@ -21,7 +21,7 @@
   font-variation-settings: "wght" var(--text-weight-font);
   background-color: #fff;
   background: repeating-linear-gradient(
-      to right,
+     to right,
       #d3d3d3,
       #d3d3d3 2px,
       transparent 2px,
@@ -36,6 +36,7 @@
     ),
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
   background-size: cover;
+  background-attachment: fixed;
   background-blend-mode: multiply;
 }
 
