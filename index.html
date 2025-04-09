@@ -486,8 +486,9 @@
         </div>
       </article>
       <button
-        popovertarget="popup"
-        popovertargeraction="show"
+        onclick="window['popup'].showModal()"
+        aria-controls="popup"
+        type="button"
         class="save-button"
       >
         <svg width="28" height="28" viewBox="0 0 21 21">
@@ -495,7 +496,7 @@
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
-      <div popover="manual" id="popup" class="popup">
+      <dialog id="popup" class="popup">
         <div class="popup__description">
           <svg fill="currentColor" width="39" height="39" viewBox="0 0 21 21">
             <use href="./svg/floppy.svg#floppy" />
@@ -504,14 +505,16 @@
             >вставьте дискету, чтобы продолжить</span
           >
         </div>
-        <button
-          popovertarget="popup"
-          popovertargetaction="hide"
+          <button
+          type="button"
+          onclick="window['popup'].close()"
           class="ok-button"
         >
           <span class="button__text">ОК</span>
         </button>
-      </div>
+        </dialog>
+        
+      
     </main>
     <script src="./scripts/like.js"></script>
   </body>
