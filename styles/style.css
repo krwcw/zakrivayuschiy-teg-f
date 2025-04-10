@@ -19,29 +19,27 @@
   min-block-size: 100dvb;
   font-family: var(--main-font), sans-serif;
   font-variation-settings: "wght" var(--text-weight-font);
-  background-color: #fff;
-  background: repeating-linear-gradient(
-     to right,
-      #d3d3d3,
+  background-image: repeating-linear-gradient(
+      to right,
+      #d3d3d3 0px,
       #d3d3d3 2px,
       transparent 2px,
       transparent 4px
     ),
     repeating-linear-gradient(
       to bottom,
-      #d3d3d3,
-      #d3d3d3 2px,
-      transparent 2px,
-      transparent 4px
+      #d3d3d3 1px,
+      #d3d3d3 3px,
+      transparent 3px,
+      transparent 5px
     ),
-    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+    linear-gradient(to bottom, #e7e7e7, #1a1a1a 100%);
   background-size: cover;
   background-attachment: fixed;
-  background-blend-mode: multiply;
 }
 
 .header {
-  block-size: clamp(20.188rem, 19.197rem + 4.23vw, 23rem);
+  padding: 128px 0;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -204,7 +202,7 @@
     Спасибо! */
 
 .like-icon {
-  transition: outline 0.3s linear;
+  transition: outline 0.3s ease;
 }
 
 .like-icon .core {
@@ -253,7 +251,7 @@
 
 .like-icon.is-liked .contour {
   fill: #ff0000;
-  transition: fill 0.3s linear 0.1s;
+  transition: fill 0.3s linear 0.06s;
 }
 
 .like-icon.is-liked .heart {
@@ -261,26 +259,8 @@
   transform-origin: center;
 }
 
-@keyframes scale {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.25);
-  }
-}
-
 .like-icon.is-liked .sparks {
   animation: sparkle 0.3s normal ease-in 0.3s;
-}
-
-@keyframes sparkle {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .card__icon-button:focus {
@@ -360,6 +340,10 @@
 }
 
 @media (width <= 375px) {
+  .header {
+    padding: 120px 0;
+  }
+
   .content__card-lable {
     right: 11px;
   }
